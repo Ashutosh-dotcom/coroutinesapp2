@@ -32,7 +32,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun SayHelloFromBackThread() {
-        TODO("Not yet implemented")
+        CoroutineScope(Dispatchers.IO).launch {
+            binding.text2.text = "Hello from" +
+                    "${Thread.currentThread().name}"
+        }
+
     }
 
 
